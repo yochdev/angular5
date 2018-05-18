@@ -1,0 +1,74 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+
+  <div ngModelGroup="contact">
+
+      <div class="form-group">
+
+        <label for="firstname">Firstname</label>
+        <input
+          required
+          ngModel name="firstname"
+          #firstName="ngModel"
+          (change)="log(firstName)"
+          minlength="4"
+          maxlength="14"
+          pattern="[a-zA-Z]+"
+          class="form-control"
+          id="firstname"
+          type="text"
+        >
+        <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">Das Feld ist obligatorisch !!
+          <!--div *ngIf="firstName.errors.required">Dieses Feld ist obligatorisch </div-->
+          <div *ngIf="firstName.errors.minlength">
+            Dieses Feld muss mindestens {{ firstName.errors.minlength.actualLength }} / {{ firstName.errors.minlength.requiredLength }} Zeichen lang sein
+          </div>
+          <div *ngIf="firstName.errors.pattern">
+            ce champ doit etre alpha
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Lastname</label>
+            <input ngModel name="lastname" #lastName class="form-control" id="lastname" type="text">
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label for="comment">Comment</label>
+      <textarea ngModel name="comment" #Comment class="form-control" id="comment" type="text"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="ContactMethod">kontakt Method</label>
+    <select multiple class="form-control" id="ContactMethod" ngModel name="ContactMethod">
+      <option value=""></option>
+      <option *ngFor="let method of ContactMethods" [ngValue]="method">
+        {{ method.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="radio" *ngFor="let method of ContactMethods">
+    <label for="">
+      <input type="radio" ngModel name="ContactMethod2" [value]="method.id">
+      {{ method.name }}
+    </label>
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ngModel name="subscriber">abonnieren
+    </label>
+  </div>
+
+  <div class="form-groupe">
+      <button class="btn btn-primary" [disabled]="!f.valid" >Speichern</button>
+  </div>
+
+</form>
+
+<p>
+  {{ f.value | json}}
+</p>

@@ -1,0 +1,25 @@
+<span
+  class="glyphicon "
+
+  [ngClass]= "{
+    'glyphicon-star': !isSelected,
+    'glyphicon-star-empty': isSelected
+  }"
+
+  [ngStyle]="{
+    'color' : isSelected ? 'red' : 'blue',
+    'font-size' : isSelected ? '60px' : '30px'
+  }"
+
+  (click)="myFavorite()"
+>
+</span>
+
+<!--
+  [class.glyphicon-star]="!isSelected"
+  [class.glyphicon-star-empty]="isSelected"
+-->
+<!--
+  [style.color]="isSelected ? 'red' : 'blue'"
+  [style.font-size]="isSelected ? '60px' : '30px'"
+-->
