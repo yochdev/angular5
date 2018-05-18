@@ -1,0 +1,47 @@
+<div class= "container">
+    <h5>hier betrachten wir *ngIf</h5>
+    <div *ngIf = 'courses.length > 0 ; then listCourses else noCourses' >
+    </div>
+
+    <ng-template #listCourses>
+      La liste de mes cours
+    </ng-template>
+
+    <ng-template #noCourses>
+      pas de cours
+    </ng-template>
+  </div>
+
+  <div class= "container">
+    <h5> hier betrachten wir Hidden bsp</h5>
+      <div [hidden]= " courses.length==0">
+        la liste de mes cours
+      </div>
+      <div [hidden]= " courses.length>0">
+          pas de cours
+      </div>
+  </div>
+
+  <ul class="nav nav-pills">
+    <li [class.active]="viewCourse == 'Laravel'"><a (click)="viewCourse = 'Laravel'">Laravel</a></li>
+    <li [class.active]="viewCourse == 'Angular'"><a (click)="viewCourse = 'Angular'">Angular</a></li>
+    <li [class.active]="viewCourse == 'Symfony'"><a (click)="viewCourse = 'Symfony'">Symfony</a></li>
+  </ul>
+
+  <div [ngSwitch]="viewCourse">
+    <div *ngSwitchCase="'Laravel'">lorem Laravel</div>
+    <div *ngSwitchCase="'Angular'">Lorem Angular</div>
+    <div *ngSwitchCase="'Symfony'"> Lorem Symfony</div>
+    <div *ngSwitchDefault>Autre chose....</div>
+  </div>
+
+  <button class="btn btn-info" (click)= "loadList()">Load</button>
+  <button class="btn btn-success" (click)="addFormation()">Hinzufügen</button>
+  <ul>
+      <li *ngFor="let formation of formations ; first as isEvent; trackBy: trackformation">
+        <span *ngIf="isEvent"> Event-</span>
+        {{ formation.id }} {{ formation.title }}
+        <button class="btn btn-danger" (click)="removeFormation(formation)">Delete</button>
+        <button class="btn btn-warning" (click)="editFormation(formation)">Edit</button>
+      </li>
+    </ul>

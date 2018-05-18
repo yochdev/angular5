@@ -7,7 +7,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class FavoriteComponent implements OnInit {
 
-
+  /*<app-favorite [is-fav]="post.isFavorite"
+    (change)="onFavoriteChanged($event)">
+    </app-favorite>
+  */
   @Input('is-fav') isSelected: boolean;
   @Output('change') click = new EventEmitter();
 

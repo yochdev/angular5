@@ -22,32 +22,25 @@ import { GithubFollowersComponent } from './github-followers/github-followers.co
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileFollowersComponent } from './profile-followers/profile-followers.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { TemplateComponent } from './template/template.component';
 
 
 
-/*const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'followers',
-    component: GithubFollowersComponent
-  },
-  {
-    path: 'followers/:usernae',
-    component: ProfileFollowersComponent
-  },
-  {
-    path: 'posts',
-    component: PostsComponent
-  },
-  {
-    path: '**',
-    component: PageNotFoundComponent
-  }
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'followers', component: GithubFollowersComponent},
+  { path: 'followers/:username', component: ProfileFollowersComponent},
+  { path: 'posts', component: PostsComponent},
+  { path: 'signupform', component: SignupFormComponent },
+  { path: 'courses', component: CoursesComponent },
+  { path: 'favorite', component: FavoriteComponent },
+  { path: 'contactform', component: ContactFormComponent },
+  { path: 'template', component: TemplateComponent },
+  { path: 'panel', component: PanelComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
-*/
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,13 +57,15 @@ import { ProfileFollowersComponent } from './profile-followers/profile-followers
     PageNotFoundComponent,
     HomeComponent,
     ProfileFollowersComponent,
+    NavbarComponent,
+    TemplateComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    // RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes)
   ],
   providers: [
     CoursesService,

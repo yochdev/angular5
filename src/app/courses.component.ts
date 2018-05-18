@@ -4,6 +4,7 @@ import { CoursesService } from './courses.service';
 @Component({
   selector: 'app-courses',
   template: `
+    <h1>Notre application Angular 5</h1>
     <h1 [style.color]= "isActive ? 'blue' : 'red' ">{{ title }}</h1>
     <h1 [textContent]="title"></h1>
     <img [src]="image" [alt]="title">
