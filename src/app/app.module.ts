@@ -26,9 +26,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TemplateComponent } from './template/template.component';
 
 
-
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'followers', component: GithubFollowersComponent},
   { path: 'followers/:username', component: ProfileFollowersComponent},
   { path: 'posts', component: PostsComponent},
@@ -58,7 +57,7 @@ const routes: Routes = [
     HomeComponent,
     ProfileFollowersComponent,
     NavbarComponent,
-    TemplateComponent,
+    TemplateComponent
   ],
   imports: [
     BrowserModule,

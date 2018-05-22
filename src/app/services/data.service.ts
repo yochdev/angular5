@@ -55,7 +55,7 @@ export class DataService {
 /*
    *Catch: Methode hat einen Rückgabetype observable:
    *              import { Observable } from 'rxjs/Observable';
-   *error: variable callback und ihre Type ist response
+   *error: ist eine callback variable und ihre Type ist response
    * Um Catch zu verwenden, sollen wir folgendes Package importieren:
    *              import 'rxjs/add/operator/catch'
    * die Methode catch spielt dabei die Rolle der Fehlerbehandlung im Service
