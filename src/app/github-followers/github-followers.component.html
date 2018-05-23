@@ -1,7 +1,8 @@
+<div class="container">
 <div class="media" *ngFor="let myfollower of followers">
   <div class="media-left">
     <a href="#">
-      <img class="avatar media-object" src="{{ myfollower.avatar_url }}" alt="">
+      <img class="img-circle media-object" src="{{ myfollower.avatar_url }}" alt="20x20">
     </a>
   </div>
   <div class="media-body">
@@ -9,4 +10,4 @@
     <a href="follower.html_url">{{ myfollower.html_url }}</a>
   </div>
 </div>
-
+</div>

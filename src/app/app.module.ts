@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
@@ -24,21 +23,8 @@ import { HomeComponent } from './home/home.component';
 import { ProfileFollowersComponent } from './profile-followers/profile-followers.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TemplateComponent } from './template/template.component';
+import { AppRoutingModule } from './routing.module';
 
-
-const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'followers', component: GithubFollowersComponent},
-  { path: 'followers/:username', component: ProfileFollowersComponent},
-  { path: 'posts', component: PostsComponent},
-  { path: 'signupform', component: SignupFormComponent },
-  { path: 'courses', component: CoursesComponent },
-  { path: 'favorite', component: FavoriteComponent },
-  { path: 'contactform', component: ContactFormComponent },
-  { path: 'template', component: TemplateComponent },
-  { path: 'panel', component: PanelComponent },
-  { path: '**', component: PageNotFoundComponent }
-];
 
 @NgModule({
   declarations: [
@@ -64,7 +50,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
   providers: [
     CoursesService,
